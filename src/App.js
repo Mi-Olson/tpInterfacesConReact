@@ -39,6 +39,7 @@ const [cargando, guardarCargando] = useState(false);
   const [frase, setFrase] = useState([]);
   // con  la trivia pasamos de mostrar la pantalla de busqueda a la pantalla con los resultados
   const [inicio,cargarInicio]=useState(false);
+  const [seEligioPreparacion,actualizarStatePreparacion]=useState(false);
    
   //guardamos todas las opciones seleccionadas
   const[letraElegida,cargarEleccion]=useState([]);
@@ -94,6 +95,7 @@ const [cargando, guardarCargando] = useState(false);
                     bebida1={bebida1}
                     bebida2={bebida2}
                     cargarInicio={cargarInicio}
+                    actualizarStatePreparacion={actualizarStatePreparacion}
                         
                   />
         
@@ -103,7 +105,7 @@ const [cargando, guardarCargando] = useState(false);
                   <Traducir
                   
                     preparacion={preparacion}
-                    cargarPreparacion={cargarPreparacion}
+                    seEligioPreparacion={seEligioPreparacion}
                     inicio={inicio}
                     />
           </div> 
@@ -158,6 +160,9 @@ const [cargando, guardarCargando] = useState(false);
                       strIngredient1={fra.strIngredient1}
                       strIngredient2={fra.strIngredient2}
                       strIngredient3={fra.strIngredient3}
+                      strMeasure1={fra.strMeasure1}
+                      strMeasure2={fra.strMeasure2}
+                      strMeasure3={fra.strMeasure3}
                       strInstructionsIT={fra.strInstructionsIT}
                       strInstructionsDE={fra.strInstructionsDE}
                       strInstructions={fra.strInstructions}
@@ -171,6 +176,8 @@ const [cargando, guardarCargando] = useState(false);
 
                       
                       id={fra.idDrink}
+                     
+                      actualizarStatePreparacion={actualizarStatePreparacion}
                       
                     />
                   ))}
