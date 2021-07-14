@@ -26,7 +26,7 @@ const Traducir = ({preparacion,inicio,seEligioPreparacion}) => {
             ">
               <Spinner2></Spinner2>
               <p className="h-20 items-center aling-center text-center font-bold text-xl bg-gray-400 hover:bg-gray-200  border-2 rounded  border-gray-900 py-3">
-           Buscar cocktail por letra o nombre , para ver preparación pulse la bandera del idioma que prefiera</p>
+           Buscar cocktail por letra o Elegi uno de la lista </p>
            <Spinner2></Spinner2>
            </div>)
             
@@ -36,7 +36,7 @@ const Traducir = ({preparacion,inicio,seEligioPreparacion}) => {
             ">
               <Spinner2></Spinner2>
               <p className="h-20 items-center aling-center text-center font-bold text-xl bg-gray-400 hover:bg-gray-200  border-2 rounded  border-gray-900 py-3">
-           Buscar cocktail por letra o nombre , para ver preparación pulse la bandera del idioma que prefiera</p>
+           Para ver preparación pulse la bandera del idioma que prefiera</p>
            <Spinner2></Spinner2>
            </div>)
            :(
