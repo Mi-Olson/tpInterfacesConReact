@@ -1,6 +1,6 @@
 import React, { Fragment,useState } from 'react';
 import styled from '@emotion/styled';
-import uuid from 'uuid/dist/v4';
+//import uuid from 'uuid/dist/v4';
 const Boton = styled.button`
     display: flex;
     background-color: #00838f;
@@ -33,18 +33,8 @@ const Abc = ({cargarNuevosDatos,letraElegida,key,letra,consultarAPI,cargarElecci
        
     });
     let {dato}=datos;
-    datos.id = uuid();
+  //  datos.id = uuid();
     
-    //dato=letra;
-   // guardarDatos(dato);
-    /* guardarDatos({
-        ...datos,
-        [dato]:letra
-       
-       
-    }) */
-
-   // opcion ='f=';
     const abcEleccion = letra => {
         dato=letra;
         guardarDatos({
@@ -53,7 +43,7 @@ const Abc = ({cargarNuevosDatos,letraElegida,key,letra,consultarAPI,cargarElecci
         opcion ='f=';
         keyword=letra;
         cargarNuevosDatos(dato);
-       // cargarEleccion([...letraElegida,letra])
+      
         consultarAPI({keyword,opcion})
         console.log(letra,opcion)
      

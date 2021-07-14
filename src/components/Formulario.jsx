@@ -1,6 +1,6 @@
 import React, {Fragment, useState} from 'react';
 import styled from '@emotion/styled';
-import uuid from 'uuid/dist/v4';
+//import uuid from 'uuid/dist/v4';
 
 const Campo = styled.div`
     display: flex;
@@ -93,7 +93,7 @@ const buscarTrago = e => {
   
 
     // Asignar ID
-       datos.id = uuid();
+       //datos.id = uuid();
 
     
 
@@ -113,7 +113,7 @@ const buscarTrago = e => {
             opcion='s=';
             consultarAPI({keyword,opcion})
             
-            }, 0);
+            }, 2000);
    ;
 };
 

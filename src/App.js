@@ -44,17 +44,14 @@ const [cargando, guardarCargando] = useState(false);
   const [seEligioPreparacion,actualizarStatePreparacion]=useState(false);
    
   
-//  Turnos en local storage
+//  letras elegidas en local storage
 let consultasGeneradas = JSON.parse(localStorage.getItem("letraElegida"));
 if (!consultasGeneradas) {
   consultasGeneradas = [];
 }
 //Array guardamos todas las opciones seleccionadas
 const[letraElegida,cargarEleccion]=useState(consultasGeneradas);
-// Array de turnos
-//const [turnos, guardarTurnos] = useState(turnosIniciales);
 
-// Usamos useEffect para activar cuando cambia el state de turnos
 useEffect ( () => {
 let consultasGeneradas = JSON.parse(localStorage.getItem("letraElegida"));
   if (consultasGeneradas) {
@@ -80,13 +77,7 @@ const cargarNuevosDatos = dato => {
    
     const frases = await api.json();
     const frase=frases.drinks;
-    
-   
     setFrase(frase);
-    
-   console.log(frase);
-   
-
    
    
     }
@@ -97,17 +88,6 @@ const cargarNuevosDatos = dato => {
  
    }
    
-    /* useEffect(() =>{
-         consultarAPI({});
-         
-        
-       },[]);
-         */
-             
-
-  
-    
-  
   
   return (
     <Fragment >
@@ -139,7 +119,7 @@ const cargarNuevosDatos = dato => {
         </div>
       {/* ACA EMPIEZA LA SECCCION ELECCION DE OPCIONES O CARDS */}
 
-       {/* //</div> <div className="flex justify-center mt-60 gap-2  static"> */}
+     
         <div className="mt-60 gap-2 ">
        {/* DOS OPCIONES A DESARROLLAR TRIVIA */}
        {
@@ -156,35 +136,36 @@ const cargarNuevosDatos = dato => {
                         keyword={keyword}
                         opcion={opcion} 
                         cargarNuevosDatos={cargarNuevosDatos}
-                        //letraElegida={letraElegida}
+           
                       
                       /> 
                     ))}
           
-              </div> 
-              <div className="flex grid-cols-1 gap-0 mx-10">
+                </div> 
+              <div className="flex grid-cols-1 gap-10 mx-10">
 
                 <Formulario
-                //cargarEleccion={cargarEleccion}
                 keyword={keyword}
                 opcion={opcion}
                 guardarCargando={guardarCargando}
                 consultarAPI={consultarAPI}
-               // letraElegida={letraElegida}
                 cargarNuevosDatos={cargarNuevosDatos}
                 />
-                
+                 {/* {cargando ? <Spinner /> : null}  */}
               </div> 
               <div>
-                <Elecciones
-                 letraElegida={letraElegida}
-                />
-
+              <p className="text-lg font-semibold text-center">LETRAS Y PALABRAS ELEGIDAS</p>
+                <div className="grid grid-cols-3 gap-1 md:grid-cols-4 md:gap-1 lg:grid-cols-5 lg:gap-1  ">  
+                  {letraElegida.map(unaLetra=>(
+                    <Elecciones
+                    unaLetra={unaLetra}
+                    />))}
+                </div>
               </div>
 
            </div>)
-
-       :(
+// se muestra el resultado de las consultas
+       :( 
 
             <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-1  ">  
            

@@ -19,7 +19,7 @@ const Frase = ({actualizarStatePreparacion,strMeasure1,strMeasure2,strMeasure3,s
     return ( 
   <Fragment >
   
-
+ 
    
     <div className=" grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-2 py-8 px-8 max-w-sm bg-white rounded-xl shadow-md space-y-2 sm:py-4 sm:flex sm:items-center sm:space-y-0 sm:space-x-6 mx-5 mt-2">
       
@@ -49,7 +49,7 @@ const Frase = ({actualizarStatePreparacion,strMeasure1,strMeasure2,strMeasure3,s
            </div></div>
         </div></div>
        
-
+      
  
  
    
