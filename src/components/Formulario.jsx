@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {Fragment, useState} from 'react';
 import styled from '@emotion/styled';
+import uuid from 'uuid/dist/v4';
 
 const Campo = styled.div`
     display: flex;
@@ -8,6 +9,9 @@ const Campo = styled.div`
 `;
 const Label = styled.label`
     flex: 0 0 100px;
+    font-size:15px;
+    font-weight: bold;
+   
 `;
 const Select = styled.select`
     display: block;
@@ -45,14 +49,14 @@ const Error = styled.div`
     margin-bottom: 3rem;
 `;
 
-const Formulario = ( {cargarEleccion,keyword,opcion,guardarCargando,consultarAPI} ) => {
+const Formulario = ( {cargarNuevosDatos,letraElegida,cargarEleccion,keyword,opcion,guardarCargando,consultarAPI} ) => {
 
 // Hago el state para leer el form
 const [datos, guardarDatos] = useState({
     dato:'',
    
 });
-console.log(datos)
+//console.log(datos)
 
 
 // Hago el state de error
@@ -86,8 +90,12 @@ const buscarTrago = e => {
     // Repongo el error
     guardarError(false);
 
-    
+  
 
+    // Asignar ID
+       datos.id = uuid();
+
+    
 
     // Gestiono el spinner
     guardarCargando(true);
@@ -99,20 +107,20 @@ const buscarTrago = e => {
 
          // Corrijo el state que traje
          // y lo paso al componenente ppal
-            cargarEleccion(
-               ...dato 
-           )
+         cargarNuevosDatos(dato);
+        // cargarEleccion([...letraElegida,dato])   
             keyword=dato
             opcion='s=';
             consultarAPI({keyword,opcion})
             
-            }, 2000);
+            }, 0);
    ;
 };
 
 
     return ( 
-        <form
+        <Fragment>
+        <form 
             onSubmit={buscarTrago}
         >
             { error 
@@ -148,6 +156,7 @@ const buscarTrago = e => {
                 Cargar eleccion
             </Boton>
         </form>
+        </Fragment>
      );
 }
  

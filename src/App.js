@@ -14,6 +14,7 @@ import Encabezado from './components/Encabezado';
 import Formulario from './components/Formulario';
 import './index.css';
 import Abc from './components/Abc';
+import Elecciones from './components/Elecciones';
 
 
 
@@ -24,6 +25,7 @@ function App () {
   // Gestionar el spinner
 
 const [cargando, guardarCargando] = useState(false);
+
  
   // guarda el abecedario
    const[letra,cargarLetra ]=useState( [
@@ -31,7 +33,7 @@ const [cargando, guardarCargando] = useState(false);
     {id:6, letra:"f"},{id:7, letra:"g"},{id:8, letra:"h"},{id:9, letra:"i"},{id:10, letra:"j"},
     {id:11, letra:"k"},{id:12, letra:"l"},{id:13, letra:"m"},{id:14, letra:"n"},{id:15, letra:"o"},
     {id:16, letra:"p"},{id:17, letra:"q"},{id:18, letra:"r"},{id:19, letra:"s"},{id:20, letra:"t"},
-    {id:21, letra:"u"},{id:22, letra:"v"},{id:23, letra:"w"},{id:24, letra:"x"},{id:25, letra:"y"},{id:26, letra:"z"}
+    {id:22, letra:"v"},{id:23, letra:"w"},{id:25, letra:"y"},{id:26, letra:"z"}
    ])
  
   
@@ -41,8 +43,31 @@ const [cargando, guardarCargando] = useState(false);
   const [inicio,cargarInicio]=useState(false);
   const [seEligioPreparacion,actualizarStatePreparacion]=useState(false);
    
-  //guardamos todas las opciones seleccionadas
-  const[letraElegida,cargarEleccion]=useState([]);
+  
+//  Turnos en local storage
+let consultasGeneradas = JSON.parse(localStorage.getItem("letraElegida"));
+if (!consultasGeneradas) {
+  consultasGeneradas = [];
+}
+//Array guardamos todas las opciones seleccionadas
+const[letraElegida,cargarEleccion]=useState(consultasGeneradas);
+// Array de turnos
+//const [turnos, guardarTurnos] = useState(turnosIniciales);
+
+// Usamos useEffect para activar cuando cambia el state de turnos
+useEffect ( () => {
+let consultasGeneradas = JSON.parse(localStorage.getItem("letraElegida"));
+  if (consultasGeneradas) {
+    localStorage.setItem('letraElegida', JSON.stringify(letraElegida))
+  }else{
+    localStorage.setItem('letraElegida', JSON.stringify([]));
+  }
+}, [letraElegida]);
+const cargarNuevosDatos = dato => {
+  cargarEleccion([...letraElegida, dato]);
+}
+
+
   let keyword;
   let opcion;
   const consultarAPI = async ({keyword = 'a',opcion='f='}) => {
@@ -120,7 +145,7 @@ const [cargando, guardarCargando] = useState(false);
        {
          !inicio
         //  ?(<div className="flex grid-cols-2"  >
-           ?(<div className="flex grid-cols-2 gap-0 mx-10"  >
+           ?(<div className="flex grid-cols-3 gap-10 mx-10"  >
               <div className="grid grid-cols-3 gap-1 md:grid-cols-4 md:gap-1 lg:grid-cols-6 lg:gap-1  ">  
                     {letra.map(unaLetra=>(
                       <Abc
@@ -130,6 +155,8 @@ const [cargando, guardarCargando] = useState(false);
                         cargarEleccion={cargarEleccion}
                         keyword={keyword}
                         opcion={opcion} 
+                        cargarNuevosDatos={cargarNuevosDatos}
+                        //letraElegida={letraElegida}
                       
                       /> 
                     ))}
@@ -138,14 +165,23 @@ const [cargando, guardarCargando] = useState(false);
               <div className="flex grid-cols-1 gap-0 mx-10">
 
                 <Formulario
-                cargarEleccion={cargarEleccion}
+                //cargarEleccion={cargarEleccion}
                 keyword={keyword}
                 opcion={opcion}
                 guardarCargando={guardarCargando}
                 consultarAPI={consultarAPI}
+               // letraElegida={letraElegida}
+                cargarNuevosDatos={cargarNuevosDatos}
                 />
                 
-              </div>  
+              </div> 
+              <div>
+                <Elecciones
+                 letraElegida={letraElegida}
+                />
+
+              </div>
+
            </div>)
 
        :(

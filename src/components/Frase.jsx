@@ -30,13 +30,13 @@ const Frase = ({actualizarStatePreparacion,strMeasure1,strMeasure2,strMeasure3,s
               {strDrink}
               
             </p>
-            <p className="text-xs text-black font-semibold"> Ingredientes  
+            <div className="text-xs text-black font-semibold"> Ingredientes  
             <ul>
               <li>{strMeasure1}--{strIngredient1}</li>
               <li>{strMeasure2}--{strIngredient2}</li> 
               <li>{strMeasure3}--{strIngredient3}</li>
               </ul>   
-            </p>
+            </div>
           </div>
           <div className="px-4 py-1 text-xs text-gray-900 font-semibold rounded-full border-2 border-gray-600 hover:text-white hover:bg-gray-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400  focus:ring-offset-2">
           {/* <button  className="px-4 py-1 text-sm text-gray-900 font-semibold rounded-full border-2 border-gray-600 hover:text-white hover:bg-gray-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-green-400  focus:ring-offset-2" */}

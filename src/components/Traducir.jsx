@@ -10,7 +10,7 @@ import Spinner2 from "./Spinner2";
 const Traducir = ({preparacion,inicio,seEligioPreparacion}) => {
       
       
-     console.log(preparacion)
+    // console.log(preparacion)
      
       
     return ( 
