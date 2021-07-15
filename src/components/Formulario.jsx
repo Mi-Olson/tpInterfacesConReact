@@ -113,7 +113,7 @@ const buscarTrago = e => {
             opcion='s=';
             consultarAPI({keyword,opcion})
             
-            }, 2000);
+            }, 0);
    ;
 };
 
