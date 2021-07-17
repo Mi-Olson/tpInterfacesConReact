@@ -8,23 +8,24 @@ const Campo = styled.div`
     align-items: center;
 `;
 const Label = styled.label`
-    flex: 0 0 100px;
+    flex: 0 0 90px;
     font-size:15px;
     font-weight: bold;
    
 `;
 const Select = styled.select`
     display: block;
-    width: 100%;
+    width: 90%;
     padding: 1rem;
     border: 1px solid #e1e1e1;
+    font-weight: bold;
     -webkit-appearance: none;
 `;
 
 const Boton = styled.button`
     background-color: #00838f;
    
-    font-size: 16px;
+    font-size: 15px;
     width: 100%;
     padding: 1rem;
     color: #FFF;
@@ -113,7 +114,7 @@ const buscarTrago = e => {
             opcion='s=';
             consultarAPI({keyword,opcion})
             
-            }, 0);
+            }, 3000);
    ;
 };
 

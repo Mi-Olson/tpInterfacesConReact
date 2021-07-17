@@ -123,9 +123,10 @@ const cargarNuevosDatos = dato => {
         <div className="mt-60 gap-2 ">
        {/* DOS OPCIONES A DESARROLLAR TRIVIA */}
        {
-         !inicio
+         !inicio && !cargando
         //  ?(<div className="flex grid-cols-2"  >
-           ?(<div className="flex grid-cols-3 gap-10 mx-10"  >
+           ?(<div>
+           <div className="flex grid-cols-3 gap-10 mx-10 mt-10"  >
               <div className="grid grid-cols-3 gap-1 md:grid-cols-4 md:gap-1 lg:grid-cols-6 lg:gap-1  ">  
                     {letra.map(unaLetra=>(
                       <Abc
@@ -136,13 +137,14 @@ const cargarNuevosDatos = dato => {
                         keyword={keyword}
                         opcion={opcion} 
                         cargarNuevosDatos={cargarNuevosDatos}
+                        guardarCargando={guardarCargando}
            
                       
                       /> 
                     ))}
           
                 </div> 
-              <div className="flex grid-cols-1 gap-10 mx-10">
+              <div className="flex grid-cols-1 gap-10 mx-10 mt-10">
 
                 <Formulario
                 keyword={keyword}
@@ -151,10 +153,11 @@ const cargarNuevosDatos = dato => {
                 consultarAPI={consultarAPI}
                 cargarNuevosDatos={cargarNuevosDatos}
                 />
-                 {/* {cargando ? <Spinner /> : null}  */}
+                 
               </div> 
-              <div>
-              <p className="text-lg font-semibold text-center">LETRAS Y PALABRAS ELEGIDAS</p>
+             
+              <div className="mt-10">
+              <p className="text-lg font-semibold text-center mb-5">Letras y palabras elegidas</p>
                 <div className="grid grid-cols-3 gap-1 md:grid-cols-4 md:gap-1 lg:grid-cols-5 lg:gap-1  ">  
                   {letraElegida.map(unaLetra=>(
                     <Elecciones
@@ -162,10 +165,12 @@ const cargarNuevosDatos = dato => {
                     />))}
                 </div>
               </div>
-
-           </div>)
+              </div>
+             
+           </div>
+           )
 // se muestra el resultado de las consultas
-       :( 
+       :(  cargando ? <Spinner /> :
 
             <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-1 lg:grid-cols-3 lg:gap-1   mx-10">  
            

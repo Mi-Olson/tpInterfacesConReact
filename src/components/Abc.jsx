@@ -27,15 +27,19 @@ const Boton = styled.button`
     };
     `;
 
-const Abc = ({cargarNuevosDatos,letraElegida,key,letra,consultarAPI,cargarEleccion,keyword,opcion }) => {
+const Abc = ({cargarNuevosDatos,letraElegida,key,letra,consultarAPI,cargarEleccion,keyword,opcion,guardarCargando }) => {
     const [datos, guardarDatos] = useState({
         dato:'',
        
     });
     let {dato}=datos;
   //  datos.id = uuid();
-    
+ 
+
     const abcEleccion = letra => {
+        guardarCargando(true);
+        setTimeout(() => {
+         guardarCargando(false);
         dato=letra;
         guardarDatos({
             ...datos,
@@ -47,7 +51,7 @@ const Abc = ({cargarNuevosDatos,letraElegida,key,letra,consultarAPI,cargarElecci
         consultarAPI({keyword,opcion})
         console.log(letra,opcion)
      
-    
+    }, 3000);
     }
    
     
