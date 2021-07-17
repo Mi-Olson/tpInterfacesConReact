@@ -122,6 +122,7 @@ const buscarTrago = e => {
         <Fragment>
         <form 
             onSubmit={buscarTrago}
+            className=""
         >
             { error 
             ? <Error>

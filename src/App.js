@@ -92,9 +92,9 @@ const cargarNuevosDatos = dato => {
   return (
     <Fragment >
       <div className=" grid grid-cols-1   "> 
-          <div className=" mx-10 mt-0  w-full fixed ">
+          <div className="grid grid-cols-1   mt-0  w-full fixed  ">
     
-              <div>
+              <div className="">
                   <Encabezado
                     
                     bebida1={bebida1}
@@ -104,8 +104,8 @@ const cargarNuevosDatos = dato => {
                         
                   />
         
-          </div> 
-          <div>
+               </div> 
+                <div>
            
                   <Traducir
                   
@@ -113,7 +113,7 @@ const cargarNuevosDatos = dato => {
                     seEligioPreparacion={seEligioPreparacion}
                     inicio={inicio}
                     />
-          </div> 
+                 </div> 
         
       
         </div>
@@ -167,7 +167,7 @@ const cargarNuevosDatos = dato => {
 // se muestra el resultado de las consultas
        :( 
 
-            <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-2 lg:grid-cols-3 lg:gap-1  ">  
+            <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-1 lg:grid-cols-3 lg:gap-1   mx-10">  
            
                 {frase.map(fra => (
                     <Frase 

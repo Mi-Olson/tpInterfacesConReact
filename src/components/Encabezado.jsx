@@ -11,9 +11,9 @@ const Encabezado = ({bebida1,bebida2,cargarInicio,actualizarStatePreparacion}) =
   
     return ( 
         <Fragment>
-          <div className="flex ">
+          <div className="flex  w-full mx-10">
           
-           <div className="container grid grid-rows-3 grid-flow-col gap-4 h-34 items-center aling-center font-bold text-2xl bg-blue-400 hover:bg-blue-200  border-2 rounded  border-blue-500 p-1">
+           <div className="container grid grid-rows-3 grid-flow-col gap-4 h-34 items-center aling-center font-bold text-2xl bg-blue-400 hover:bg-blue-200  border-2 rounded  border-blue-500 p-1 w-full ">
               <div className="row-span-3 ">            
               <img src={bebida2} className="w-60 h-32 rounded-full mx-auto border border-purple-200 hover:border-transparent focus:outline-none "  alt="" width="384" height="600"/>
               </div> 

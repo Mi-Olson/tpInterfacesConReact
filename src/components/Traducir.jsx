@@ -15,7 +15,7 @@ const Traducir = ({preparacion,inicio,seEligioPreparacion}) => {
       
     return ( 
         <Fragment >
-          <div class="container h-34 grid grid-cols-1  ">
+          <div class="container h-34 grid grid-cols-1 mx-10 ">
             
           
        
