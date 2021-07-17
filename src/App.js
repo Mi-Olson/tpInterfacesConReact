@@ -33,7 +33,7 @@ const [cargando, guardarCargando] = useState(false);
     {id:6, letra:"f"},{id:7, letra:"g"},{id:8, letra:"h"},{id:9, letra:"i"},{id:10, letra:"j"},
     {id:11, letra:"k"},{id:12, letra:"l"},{id:13, letra:"m"},{id:14, letra:"n"},{id:15, letra:"o"},
     {id:16, letra:"p"},{id:17, letra:"q"},{id:18, letra:"r"},{id:19, letra:"s"},{id:20, letra:"t"},
-    {id:22, letra:"v"},{id:23, letra:"w"},{id:25, letra:"y"},{id:26, letra:"z"}
+    {id:21, letra:"u"},{id:22, letra:"v"},{id:23, letra:"w"},{id:24, letra:"x"},{id:25, letra:"y"},{id:26, letra:"z"}
    ])
  
   
@@ -120,14 +120,14 @@ const cargarNuevosDatos = dato => {
       {/* ACA EMPIEZA LA SECCCION ELECCION DE OPCIONES O CARDS */}
 
      
-        <div className="mt-60 gap-2 ">
+        <div className="mt-60  ">
        {/* DOS OPCIONES A DESARROLLAR TRIVIA */}
        {
          !inicio && !cargando
         //  ?(<div className="flex grid-cols-2"  >
            ?(<div>
-           <div className="flex grid-cols-3 gap-10 mx-10 mt-10"  >
-              <div className="grid grid-cols-3 gap-1 md:grid-cols-4 md:gap-1 lg:grid-cols-6 lg:gap-1  ">  
+           <div className="flex grid-cols-3 gap-2 mx-10 mt-5"  >
+              <div className="grid grid-cols-5 gap-1 md:grid-cols-6 md:gap-1 lg:grid-cols-7 lg:gap-1 mx-10 h-10  ">  
                     {letra.map(unaLetra=>(
                       <Abc
                         key={unaLetra.id}
@@ -144,7 +144,7 @@ const cargarNuevosDatos = dato => {
                     ))}
           
                 </div> 
-              <div className="flex grid-cols-1 gap-10 mx-10 mt-10">
+              <div className="flex grid-cols-1 gap-10 mx-10 mt-5">
 
                 <Formulario
                 keyword={keyword}
@@ -156,8 +156,8 @@ const cargarNuevosDatos = dato => {
                  
               </div> 
              
-              <div className="mt-10">
-              <p className="text-lg font-semibold text-center mb-5">Letras y palabras elegidas</p>
+              <div className="mt-5">
+              <p className="text-lg font-semibold text-center mb-5 bg-white">Letras y palabras elegidas</p>
                 <div className="grid grid-cols-3 gap-1 md:grid-cols-4 md:gap-1 lg:grid-cols-5 lg:gap-1  ">  
                   {letraElegida.map(unaLetra=>(
                     <Elecciones
@@ -170,11 +170,12 @@ const cargarNuevosDatos = dato => {
            </div>
            )
 // se muestra el resultado de las consultas
-       :(  cargando ? <Spinner /> :
+       :(  cargando ? <Spinner /> 
+       :(
 
             <div className="grid grid-cols-1 gap-1 md:grid-cols-2 md:gap-1 lg:grid-cols-3 lg:gap-1   mx-10">  
-           
-                {frase.map(fra => (
+           {frase===null ?(<div><p className="text-lg font-semibold text-center mb-5 bg-white">NO SE ENCONTRARON DATOS CON ESA LETRA</p> </div> ):(
+                frase.map(fra => (
                     <Frase 
                       key = {fra.idDrink}
                       strDrinkThumb = {fra.strDrinkThumb}
@@ -202,9 +203,10 @@ const cargarNuevosDatos = dato => {
                       actualizarStatePreparacion={actualizarStatePreparacion}
                       
                     />
-                  ))}
+           )))}
               
-              </div>)
+              </div>
+       ))
               }
               {/* TERMINA CARDS-ARRIBA */}
           </div>

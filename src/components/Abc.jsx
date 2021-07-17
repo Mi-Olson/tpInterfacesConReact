@@ -60,8 +60,8 @@ const Abc = ({cargarNuevosDatos,letraElegida,key,letra,consultarAPI,cargarElecci
 
     return ( 
         <Fragment>
-           <div >
-             <Boton onClick={()=>abcEleccion(letra)} >
+           <div className="mx-1 my-1  ">
+             <Boton className="px-1" onClick={()=>abcEleccion(letra)} >
            
             {letra}
            
